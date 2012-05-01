@@ -1,0 +1,25 @@
+unassociated:
+  name:       no associated user
+  phone_num:  no associated user
+
+first:
+  name:       first
+  phone_num:  0123456789
+  seq_num:    1
+
+on_list:
+  name:       on list
+  phone_num:  0123456788
+  on_list:    true
+
+expired:
+  name:       expired
+  phone_num:  1111111111
+  seq_num:    5
+  updated_at: <%= 2.days.ago.to_s(:db) %>
+
+unexpired:
+  name:       unexpired
+  phone_num:  2222222222
+  seq_num:    3
+  updated_at: <%= 2.minutes.ago.to_s(:db) %>

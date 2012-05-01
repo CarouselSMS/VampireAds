@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<% title = "Vampire Ads: The Movie" -%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%= stylesheet_link_tag("blueprint/screen.css") %>
+<title><%= title -%></title>
+</head>
+<body>
+<h1><%= title -%></h1>
+<br><t><%= flash[:notice] %>
+<h2>__Messages sent to us:      <%= @msgs.size %></h2>
+<h2>__Number of unique texters: <%= User.count %></h2>
+<div class="full_table">
+<table>
+  <tr>
+    <th>phone #</th>
+    <th>recipient #</th>
+    <th>blacklisted?</th>
+    <th>on list?</th>
+  <% for column in Message.content_columns %>
+    <% unless column.human_name == 'Phone num' %>
+    <th><%= column.human_name %></th>
+    <% end %>
+  <% end %>
+    <th>Screen</th>
+  	<th>Blacklist</th>
+    <th>Unblacklist</th>
+  </tr>
+  
+<% for message in @msgs %>
+  <tr>
+    <td><%= message.user.phone_num || message.user.name %></td>
+    <td><%= message.recipient.phone_num || message.recipient.name if message.recipient %></td>
+    <td><%= message.user.blacklisted %></td>
+    <td><%= message.user.on_list %></td>
+  <% for column in Message.content_columns %>
+     <% unless column.human_name == 'Phone num' %>
+    <td><%=h message.send(column.name) %></td>
+    <% end %>
+  <% end %>
+    <td><%= message.screen_id %></td>
+    <td><%= link_to 'Blacklist!!', :action => 'blacklist', :id => message %></td>
+    <td><%= link_to 'UnBlacklist!!', :action => 'unblacklist', :id => message %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<div class="foot">
+	<img src="/images/loading.gif" alt="pipe"><br />
+   	<a href="/messages/new" title="Send a message from the console">Send a message</a>
+</div>
+</body>
+</html>

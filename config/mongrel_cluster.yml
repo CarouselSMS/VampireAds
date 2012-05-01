@@ -1,0 +1,10 @@
+--- 
+user: 
+group: 
+log_file: log/mongrel.log
+cwd: 
+port: 3015
+environment: production
+pid_file: tmp/pids/mongrel.pid
+address: 0.0.0.0
+servers: 1

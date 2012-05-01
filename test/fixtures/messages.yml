@@ -1,0 +1,12 @@
+text_0:
+  body:       text
+  user:       first
+  displayed:  true
+  screen_id:  0
+
+persona:
+  body:       personal
+  user:       first
+  recipient:  unexpired
+  displayed:  true
+  screen_id:  0

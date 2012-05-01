@@ -1,0 +1,8 @@
+<h1>Send a message</h1>
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Create" %>
+<% end %>
+
+<%= link_to 'back to log', :action => 'smartlist' %>

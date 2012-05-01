@@ -1,0 +1,26 @@
+- stylesheet "screens"
+
+%h1 Screens
+
+- if @screens.empty?
+  .no-items No screens yet
+- else
+  %table.screens
+    %thead
+      %tr
+        %th.num     Number
+        %th.name    Name
+        %th.api_key API Key
+        %th.cmds
+    %tbody
+      - for s in @screens
+        %tr[s]
+          %td.num=      s.id
+          %td.name=     s.name
+          %td.api_key=  s.api_key
+          %td.cmds
+            = link_to "Edit",   edit_admin_screen_path(s)
+            = link_to "Delete", admin_screen_path(s), :confirm => "Are you sure?", :method => :delete
+
+.commands
+  = link_to "[+] Add Screen", new_admin_screen_path

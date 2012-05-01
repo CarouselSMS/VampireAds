@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<% title = "Example site" -%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%= stylesheet_link_tag("blueprint/screen.css") %>
+<title><%= title -%></title>
+</head>
+<body>
+<h1><%= title -%></h1>
+<h3><i>by FindHolmes</i></h3>
+<t><%= flash[:notice] %><br>
+<h2>Total signups: <%= @users.size %></h2>
+<div class="full_table">
+<table>
+  <tr>
+    <th>Signup Date & Time</th>
+    <th>Cancelled?</th>
+  </tr>
+  
+  <% for user in @users %>
+  <tr>
+    <td><%=h user.created_at.localtime.strftime("%A, %d %B %Y at %I:%M %p") %></td>
+    <td><%= "yes" unless user.on_list?  %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+</body>
+</html>

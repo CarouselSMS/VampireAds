@@ -1,0 +1,14 @@
+- stylesheet "forms"
+
+- if @screen.new_record?
+  .field
+    = form.label      :id, "Number"
+    = form.text_field :id
+
+.field
+  = form.label      :name
+  = form.text_field :name
+
+.field
+  = form.label      :api_key, "API Key"
+  = form.text_field :api_key

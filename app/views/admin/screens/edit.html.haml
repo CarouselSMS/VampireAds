@@ -1,0 +1,11 @@
+%h1 Edit Screen
+
+= error_messages_for :screen
+
+- form_for @screen, :url => { :action => "update" } do |f|
+  = render :partial => f
+  .commit
+    = f.submit "Save"
+
+.commands
+  = link_to "Back to Screens List", admin_screens_path
