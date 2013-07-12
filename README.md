@@ -49,8 +49,6 @@ Now the fun part: installing missing gems. This project is from pre-Bundler era,
 License
 =======
 
-The Recess Paging System is Copyright © 2013 [Recess Mobile](http://recess.im/).
+VampireAds is Copyright © 2013 [Recess Mobile](http://recess.im/).
 
 It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
-
-
