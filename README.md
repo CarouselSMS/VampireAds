@@ -45,3 +45,12 @@ _All of the carrier-specific notes are deprecated (tariffs, T-Mobile double opt-
 	$ cap deploy:cold
 
 Now the fun part: installing missing gems. This project is from pre-Bundler era, so there’s no gem manifest. You'll have to wire the app to the web server and test it in-browser. The errors will mention a missing gem. Then, go into the server console, install it, rinse, repeat.
+
+License
+=======
+
+The Recess Paging System is Copyright © 2013 [Recess Mobile](http://recess.im/).
+
+It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
+
+
